@@ -1,0 +1,1595 @@
+# COMPLETE FULL-STACK WEBSITE DEVELOPMENT PROMPT
+# PROJECT NAME: EMAN FATIMA – PERSONAL PORTFOLIO WEBSITE
+
+## ROLE AND PROJECT OBJECTIVE
+
+Act as an expert full-stack developer, senior UI/UX designer, React.js engineer, Supabase database architect, technical SEO specialist, AEO specialist, GEO specialist, and website performance engineer.
+
+I want you to design and develop a complete, professional, modern, animated, responsive, SEO-optimized, full-stack personal portfolio website for Eman Fatima.
+
+This must be a real, functional, production-ready website, not just a visual prototype, static HTML page, or frontend-only design.
+
+I want to build the frontend using Google AI Studio, manage the backend using Supabase, and deploy the complete website through Vercel.
+
+The website must have a professional appearance, smooth animations, fast loading speed, secure authentication, a dynamic admin dashboard, and fully functional backend integration.
+
+The website must establish a strong professional online identity for Eman Fatima.
+
+Official website domain:
+
+https://emanfatimaportfolio.vercel.app
+
+==================================================
+1. PERSONAL PROFILE INFORMATION
+==================================================
+
+Use the following information throughout the website.
+
+Full Name: Eman Fatima
+
+Email Address: emanfatima9300@gmail.com
+
+Education: BS Computer Engineering
+
+Current Semester: 3rd Semester
+
+Professional Interests:
+- Social Media Account Management
+- Social Media Marketing
+- Digital Marketing
+- Email Marketing
+- Facebook Marketplace Marketing
+- Facebook Marketing
+- Microsoft Word
+- Microsoft Excel
+- Microsoft PowerPoint
+
+Professional Introduction:
+
+"Hello! I'm Eman Fatima, a BS Computer Engineering student currently in my 3rd semester. I am interested in digital marketing, social media management, and technology. I enjoy learning new digital skills, exploring creative marketing strategies, and developing my professional capabilities."
+
+Create a professional personal brand around my name.
+
+Position me as a Computer Engineering student with digital marketing and social media management skills.
+
+IMPORTANT:
+- Do not invent professional experience.
+- Do not invent client projects.
+- Do not invent certificates.
+- Do not invent awards or achievements.
+- Do not invent educational qualifications.
+- Allow me to add verified information later through the admin dashboard.
+
+==================================================
+2. TECHNOLOGY STACK
+==================================================
+
+Use the following technologies.
+
+FRONTEND:
+- React.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React Icons
+- React Router
+- Modern reusable components
+
+BACKEND:
+- Supabase PostgreSQL
+- Supabase Authentication
+- Supabase Storage
+- Supabase Row Level Security
+- Supabase database queries
+
+DEPLOYMENT:
+- Google AI Studio for frontend development.
+- Supabase for backend and database management.
+- GitHub for source code management.
+- Vercel for hosting and deployment.
+
+Use a clean, scalable project architecture.
+
+Do not use mock backend data as the final implementation.
+
+All dynamic information must come from Supabase.
+
+==================================================
+3. WEBSITE BRANDING AND COLOR THEME
+==================================================
+
+IMPORTANT: Use a premium BLACK AND RED theme throughout the complete website.
+
+Do not use the previous purple or lavender theme.
+
+COLOR PALETTE:
+
+Primary Background:
+#080808
+
+Secondary Background:
+#111111
+
+Card Background:
+#181818
+
+Primary Red:
+#E50914
+
+Secondary Red:
+#B00020
+
+White Text:
+#FFFFFF
+
+Secondary Text:
+#B3B3B3
+
+Border Color:
+#303030
+
+DESIGN STYLE:
+
+Create a premium, elegant, modern, bold, professional personal portfolio inspired by high-end creative agency websites and modern developer portfolios.
+
+Use:
+- Deep black backgrounds.
+- White typography.
+- Red gradient accents.
+- Subtle red glow effects.
+- Professional typography.
+- Elegant card layouts.
+- Rounded corners.
+- Soft shadows.
+- Premium buttons.
+- Smooth hover transitions.
+- Minimalistic icons.
+- Beautiful section spacing.
+- Subtle animated backgrounds.
+
+Use red as an accent color rather than making every section red.
+
+The website should look premium and visually balanced.
+
+Maintain the same branding across:
+- Homepage.
+- About page.
+- Skills page.
+- Contact page.
+- Blog.
+- Blog articles.
+- Admin dashboard.
+- Login page.
+- Signup page.
+- Footer.
+
+==================================================
+4. ANIMATIONS AND INTERACTIONS
+==================================================
+
+Use Framer Motion to create:
+
+- Smooth page transitions.
+- Fade-in animations.
+- Slide-up animations.
+- Scroll reveal effects.
+- Hero text animations.
+- Animated buttons.
+- Card hover animations.
+- Smooth navigation transitions.
+- Subtle background movement.
+- Animated skill cards.
+- Certificate hover effects.
+- Blog card animations.
+- Smooth mobile menu transitions.
+
+Use professional and lightweight animations.
+
+Avoid excessive effects that slow down the website.
+
+Respect reduced-motion accessibility preferences.
+
+==================================================
+5. WEBSITE STRUCTURE AND MULTI-PAGE ROUTING
+==================================================
+
+Create the following completely independent pages.
+
+PUBLIC PAGES:
+
+1. Home:
+/
+
+2. About:
+ /about
+
+3. Skills:
+ /skills
+
+4. Contact:
+ /contact
+
+5. Privacy Policy:
+ /privacy-policy
+
+6. Terms and Conditions:
+ /terms-and-conditions
+
+7. Blog:
+ /blog
+
+8. Individual Blog Articles:
+ /blog/:slug
+
+ADMIN PAGES:
+
+9. Admin Login:
+ /admin/login
+
+10. Admin Signup:
+ /admin/signup
+
+11. Admin Dashboard:
+ /admin/dashboard
+
+12. Custom 404 Page:
+ /404
+
+IMPORTANT ROUTING REQUIREMENTS:
+
+Every page must have its own separate URL.
+
+I do not want a single-page portfolio where every navigation link only scrolls to a section on the homepage.
+
+Each main page must have its own content and independent route.
+
+Users must be able to:
+- Open any page directly.
+- Refresh any page.
+- Share individual page URLs.
+- Open blog articles through unique links.
+- Navigate between pages without errors.
+- Access pages through Google search results.
+
+Configure React Router correctly.
+
+Configure Vercel rewrites so that refreshing a nested route does not produce a 404 error.
+
+Test all routes after deployment.
+
+Do not leave broken navigation links.
+
+==================================================
+6. GLOBAL NAVIGATION BAR
+==================================================
+
+Create a premium responsive navigation bar.
+
+Left side:
+EMAN FATIMA
+
+Right side navigation:
+
+- Home
+- About
+- Skills
+- Blog
+- Contact
+
+Add a red CTA button:
+"Let's Connect"
+
+Requirements:
+- Sticky navigation.
+- Black transparent background.
+- Subtle backdrop blur.
+- Red hover effects.
+- Active page indicator.
+- Smooth transitions.
+- Responsive mobile hamburger menu.
+
+Clicking any navigation item must open its actual independent page.
+
+==================================================
+7. HOMEPAGE – MINIMUM 7 SECTIONS
+==================================================
+
+Create an attractive, professional homepage.
+
+SECTION 1: HERO SECTION
+
+Main heading:
+
+"Hi, I'm Eman Fatima"
+
+Secondary heading:
+
+"Computer Engineering Student | Digital Marketing Enthusiast"
+
+Description:
+
+"I'm Eman Fatima, a BS Computer Engineering student passionate about digital marketing, social media management, and creating meaningful digital experiences."
+
+Include:
+- Professional profile image placeholder.
+- Animated introduction.
+- Red accent text.
+- Black background.
+- Subtle gradient.
+- Social media icons.
+- Explore My Skills button.
+- Contact Me button.
+
+SECTION 2: ABOUT ME
+
+Heading:
+"Get to Know Me"
+
+Write a professional short introduction.
+
+Mention:
+- BS Computer Engineering.
+- Currently in 3rd semester.
+- Interest in digital marketing.
+- Interest in social media management.
+- Passion for learning technology and digital skills.
+
+Add a button linking to /about.
+
+SECTION 3: FEATURED SKILLS
+
+Display attractive skill cards.
+
+Skills:
+- Social Media Account Management.
+- Social Media Marketing.
+- Email Marketing.
+- Facebook Marketplace Marketing.
+- Facebook Marketing.
+- Microsoft Word.
+- Microsoft Excel.
+- Microsoft PowerPoint.
+
+Use relevant icons.
+
+Add a button linking to /skills.
+
+SECTION 4: EDUCATION
+
+Display:
+BS Computer Engineering
+
+Currently:
+3rd Semester
+
+Use an elegant education card or timeline.
+
+SECTION 5: CERTIFICATES
+
+Display certificates dynamically from Supabase.
+
+Each certificate should have:
+- Image.
+- Title.
+- Issuing organization.
+- Issue date.
+- Description.
+
+If no certificates are available, display a professional empty state rather than fake certificates.
+
+SECTION 6: LATEST BLOG ARTICLES
+
+Display the latest three published articles from Supabase.
+
+Each card should contain:
+- Featured image.
+- Blog title.
+- Short description.
+- Publication date.
+- Read More link.
+
+SECTION 7: CONTACT CTA
+
+Heading:
+"Let's Connect and Create Something Great"
+
+Description:
+"Have an opportunity or want to connect? Feel free to get in touch."
+
+Buttons:
+- Contact Me.
+- Send Email.
+
+SECTION 8: FOOTER
+
+Include:
+- Eman Fatima.
+- Short biography.
+- Navigation links.
+- Skills link.
+- Blog link.
+- Contact email.
+- Social media links.
+- Privacy Policy.
+- Terms and Conditions.
+- Copyright information.
+
+==================================================
+8. ABOUT PAGE – MINIMUM 6 SECTIONS
+==================================================
+
+URL:
+/about
+
+Create a detailed professional About page.
+
+Include:
+
+SECTION 1: About Hero
+
+Heading:
+"About Eman Fatima"
+
+Subheading:
+"Technology, Creativity and Digital Growth"
+
+SECTION 2: Personal Introduction
+
+Write a detailed professional biography.
+
+SECTION 3: Educational Background
+
+Display:
+BS Computer Engineering.
+3rd Semester.
+
+SECTION 4: My Journey
+
+Explain my learning journey and interest in combining technology with digital marketing.
+
+SECTION 5: Professional Interests
+
+Display:
+- Social Media Management.
+- Digital Marketing.
+- Email Marketing.
+- Facebook Marketing.
+- Productivity Tools.
+
+SECTION 6: Personal Strengths
+
+Include general professional qualities such as:
+- Continuous learning.
+- Creativity.
+- Communication.
+- Adaptability.
+- Interest in technology.
+
+Do not claim unverified achievements.
+
+SECTION 7: Future Goals
+
+Present a professional section about developing digital marketing and technical skills.
+
+SECTION 8: Contact CTA
+
+Add a button linking to /contact.
+
+All editable biography and profile information should be managed through Supabase.
+
+==================================================
+9. SKILLS PAGE – MINIMUM 6 SECTIONS
+==================================================
+
+URL:
+/skills
+
+Create a visually attractive professional Skills page.
+
+SECTION 1: Skills Hero
+
+Heading:
+"My Skills and Expertise"
+
+SECTION 2: Social Media Management
+
+Skills:
+- Social Media Account Management.
+- Social Media Marketing.
+
+Provide meaningful descriptions.
+
+SECTION 3: Digital Marketing
+
+Skills:
+- Email Marketing.
+- Facebook Marketing.
+- Facebook Marketplace Marketing.
+
+SECTION 4: Productivity Tools
+
+Skills:
+- Microsoft Word.
+- Microsoft Excel.
+- Microsoft PowerPoint.
+
+SECTION 5: Certificates and Learning
+
+Display dynamically uploaded certificates.
+
+SECTION 6: Learning and Development
+
+Create a section explaining continuous professional development.
+
+SECTION 7: Contact CTA
+
+Encourage visitors to connect.
+
+SKILL CARD REQUIREMENTS:
+
+Each skill card must have:
+- Skill name.
+- Relevant icon.
+- Description.
+- Category.
+- Proficiency or learning status.
+- Optional admin-defined progress indicator.
+
+IMPORTANT:
+
+Do not automatically assign random skill percentages.
+
+Allow the admin to manage all skill information through the dashboard.
+
+==================================================
+10. CONTACT PAGE – MINIMUM 6 SECTIONS
+==================================================
+
+URL:
+/contact
+
+Create a premium contact page.
+
+SECTION 1: Contact Hero
+
+Heading:
+"Let's Start a Conversation"
+
+SECTION 2: Email Contact
+
+Display:
+emanfatima9300@gmail.com
+
+Make the email clickable using mailto.
+
+SECTION 3: Contact Form
+
+Fields:
+- Full Name.
+- Email Address.
+- Subject.
+- Message.
+
+SECTION 4: Social Media
+
+Display editable social media profile links.
+
+SECTION 5: Collaboration Section
+
+Heading:
+"Have a Project or Opportunity?"
+
+SECTION 6: Frequently Asked Questions
+
+Create useful FAQs about:
+- Eman Fatima's education.
+- Skills.
+- Digital marketing interests.
+- Contact information.
+
+SECTION 7: Final CTA
+
+Invite visitors to send a message.
+
+CONTACT FORM FUNCTIONALITY:
+
+- Validate all inputs.
+- Validate email addresses.
+- Show loading states.
+- Show success messages.
+- Show error messages.
+- Store submissions in Supabase.
+- Add basic spam protection.
+- Prevent unauthorized access to messages.
+
+Only the admin can read submitted messages.
+
+==================================================
+11. PRIVACY POLICY PAGE
+==================================================
+
+URL:
+/privacy-policy
+
+Create a professionally written Privacy Policy page with at least 6 meaningful sections.
+
+Include:
+
+1. Introduction.
+2. Information We Collect.
+3. How Information Is Used.
+4. Cookies and Analytics.
+5. Data Security.
+6. Third-Party Services.
+7. User Rights.
+8. Contact Information.
+
+Use clear and professional language.
+
+Do not falsely claim to use analytics, tracking, advertising, or cookies that are not actually implemented.
+
+==================================================
+12. TERMS AND CONDITIONS PAGE
+==================================================
+
+URL:
+/terms-and-conditions
+
+Create a professional Terms and Conditions page with at least 6 sections.
+
+Include:
+
+1. Introduction.
+2. Website Usage.
+3. Intellectual Property.
+4. User Responsibilities.
+5. External Links.
+6. Limitation of Liability.
+7. Changes to Terms.
+8. Contact Information.
+
+Use clear and understandable language.
+
+==================================================
+13. COMPLETE BLOG MANAGEMENT SYSTEM
+==================================================
+
+PUBLIC BLOG PAGE:
+
+URL:
+/blog
+
+Create a modern, attractive blog listing page.
+
+Include:
+- Blog hero section.
+- Featured articles.
+- Latest articles.
+- Blog categories.
+- Search functionality.
+- Article cards.
+- Pagination or load more functionality.
+
+Each article card should display:
+- Featured image.
+- Title.
+- Description.
+- Publication date.
+- Category.
+- Read More button.
+
+INDIVIDUAL BLOG PAGE:
+
+URL:
+/blog/:slug
+
+Every published article must have its own unique URL.
+
+Example:
+- /blog/social-media-marketing-guide
+- /blog/digital-marketing-for-beginners
+- /blog/email-marketing-tips
+
+Individual article pages must display:
+
+- Article title.
+- Featured image.
+- Short description.
+- Publication date.
+- Main article content.
+- Relevant images.
+- Author name: Eman Fatima.
+- Related articles.
+- Social sharing options.
+- Back to Blog link.
+
+Load article data dynamically from Supabase.
+
+Only published articles should be visible to public visitors.
+
+Generate proper SEO metadata for every article.
+
+==================================================
+14. ADMIN AUTHENTICATION
+==================================================
+
+Create a secure admin authentication system.
+
+ADMIN LOGIN:
+
+URL:
+/admin/login
+
+Include:
+- Email field.
+- Password field.
+- Login button.
+- Forgot password.
+- Password visibility toggle.
+- Input validation.
+- Error messages.
+- Loading state.
+
+ADMIN SIGNUP:
+
+URL:
+/admin/signup
+
+IMPORTANT SECURITY REQUIREMENT:
+
+Do not allow random public visitors to create administrator accounts.
+
+Use an invitation-only or securely provisioned administrator account system.
+
+The initial owner account must be created through a trusted Supabase setup process.
+
+Use Supabase Authentication.
+
+Implement:
+- Email/password authentication.
+- Secure session management.
+- Logout.
+- Password reset.
+- Protected routes.
+- Role verification.
+- Admin authorization.
+
+Never store plain-text passwords.
+
+Never expose Supabase service role keys in frontend code.
+
+==================================================
+15. PROFESSIONAL ADMIN DASHBOARD
+==================================================
+
+URL:
+/admin/dashboard
+
+Create a modern black and red admin dashboard.
+
+Sidebar navigation:
+
+- Dashboard Overview.
+- Profile Management.
+- Skills Management.
+- Certificates Management.
+- Blog Management.
+- Contact Messages.
+- Website Settings.
+- Logout.
+
+DASHBOARD OVERVIEW:
+
+Display dynamic statistics:
+
+- Total Skills.
+- Total Certificates.
+- Total Published Blogs.
+- Total Draft Blogs.
+- Total Contact Messages.
+
+All statistics must come from Supabase.
+
+ADMIN FEATURE 1: PROFILE MANAGEMENT
+
+Admin can:
+- Update full name.
+- Update email.
+- Edit biography.
+- Edit education.
+- Update semester.
+- Upload profile image.
+- Manage social media links.
+- Edit homepage introduction.
+
+ADMIN FEATURE 2: SKILLS MANAGEMENT
+
+Admin can:
+- Add skills.
+- Edit skills.
+- Delete skills.
+- Add descriptions.
+- Select skill categories.
+- Add icons.
+- Set proficiency labels.
+- Set learning status.
+- Change display order.
+
+Every change must automatically update the public Skills page.
+
+ADMIN FEATURE 3: CERTIFICATE MANAGEMENT
+
+Admin can:
+- Add certificates.
+- Edit certificates.
+- Delete certificates.
+- Upload certificate images.
+- Upload certificate PDFs.
+- Add certificate title.
+- Add issuing organization.
+- Add issue date.
+- Add description.
+- Add credential URL.
+
+Use Supabase Storage.
+
+ADMIN FEATURE 4: BLOG MANAGEMENT
+
+Build a complete blog content management system.
+
+Admin must be able to:
+
+- Create new articles.
+- Edit articles.
+- Delete articles.
+- Publish articles.
+- Unpublish articles.
+- Save drafts.
+- Add article titles.
+- Add article descriptions.
+- Add URL slugs.
+- Add main article content.
+- Add featured image URLs.
+- Upload images.
+- Insert images into content.
+- Add categories.
+- Add tags.
+- Add author information.
+- Add publication dates.
+
+RICH TEXT EDITOR:
+
+Include:
+- H1 headings.
+- H2 headings.
+- H3 headings.
+- Paragraphs.
+- Bold text.
+- Italic text.
+- Bullet lists.
+- Numbered lists.
+- Hyperlinks.
+- Image insertion.
+
+SEO FIELDS:
+
+- SEO Title.
+- Meta Description.
+- Focus Keyword.
+- Image Alt Text.
+- Canonical URL.
+
+Automatically generate an SEO-friendly slug from the title, while allowing manual editing.
+
+ADMIN FEATURE 5: CONTACT MESSAGES
+
+Admin can:
+- View submitted messages.
+- Open individual messages.
+- Mark messages as read.
+- Mark messages as unread.
+- Delete messages.
+
+ADMIN FEATURE 6: WEBSITE SETTINGS
+
+Admin can manage:
+- Website name.
+- Website description.
+- SEO title.
+- Default meta description.
+- Social media links.
+- Footer information.
+- Contact email.
+- Profile image.
+
+All features must be functional and connected to Supabase.
+
+==================================================
+16. SUPABASE DATABASE ARCHITECTURE
+==================================================
+
+Create the following database tables.
+
+1. profiles
+2. skills
+3. certificates
+4. blog_posts
+5. contact_messages
+6. site_settings
+
+Suggested database fields:
+
+PROFILES:
+- id
+- full_name
+- email
+- biography
+- education
+- semester
+- profile_image
+- social_links
+- created_at
+- updated_at
+
+SKILLS:
+- id
+- title
+- description
+- category
+- icon
+- proficiency
+- display_order
+- created_at
+- updated_at
+
+CERTIFICATES:
+- id
+- title
+- organization
+- description
+- issue_date
+- file_url
+- credential_url
+- created_at
+- updated_at
+
+BLOG_POSTS:
+- id
+- title
+- slug
+- description
+- content
+- featured_image
+- image_alt
+- category
+- tags
+- status
+- seo_title
+- meta_description
+- focus_keyword
+- published_at
+- created_at
+- updated_at
+
+CONTACT_MESSAGES:
+- id
+- full_name
+- email
+- subject
+- message
+- is_read
+- created_at
+
+SITE_SETTINGS:
+- id
+- setting_key
+- setting_value
+- updated_at
+
+Use appropriate:
+- Primary keys.
+- Foreign keys where applicable.
+- Indexes.
+- Unique constraints.
+- Timestamps.
+- Validations.
+
+SECURITY:
+
+Enable Row Level Security on every relevant table.
+
+PUBLIC ACCESS:
+- Read public profile information.
+- Read public skills.
+- Read public certificates.
+- Read published blog posts.
+- Submit contact forms.
+
+ADMIN ACCESS:
+- Create, read, update, and delete authorized portfolio content.
+- Manage certificates.
+- Manage blog posts.
+- Manage skills.
+- Update profile.
+- Read contact messages.
+- Update website settings.
+
+Public visitors must never read private contact messages or access admin functionality.
+
+Implement appropriate Supabase Storage policies for profile images, certificates, and blog images.
+
+==================================================
+17. TECHNICAL SEO IMPLEMENTATION
+==================================================
+
+SEO is one of the most important requirements.
+
+My main objective is to rank my personal portfolio website for searches related to my name.
+
+TARGET DOMAIN:
+
+https://emanfatimaportfolio.vercel.app
+
+PRIMARY KEYWORDS:
+
+1. Eman Fatima
+2. Eman Fatima Portfolio
+
+SECONDARY KEYWORDS:
+
+- Eman Fatima Computer Engineering
+- Eman Fatima Portfolio Website
+- Eman Fatima Digital Marketing
+- Eman Fatima Social Media Marketing
+- Eman Fatima Social Media Management
+- Eman Fatima Email Marketing
+- Eman Fatima Skills
+- Eman Fatima Professional Portfolio
+- Eman Fatima Facebook Marketing
+- Eman Fatima Computer Engineering Student
+- Eman Fatima Facebook Marketplace Marketing
+
+HOMEPAGE SEO TITLE:
+
+Eman Fatima | Personal Portfolio & Digital Marketing Skills
+
+HOMEPAGE META DESCRIPTION:
+
+"Welcome to Eman Fatima's official portfolio. Explore her Computer Engineering education, digital marketing interests, social media management skills, email marketing, and professional profile."
+
+IMPLEMENT:
+
+- Unique SEO title on every page.
+- Unique meta description on every page.
+- Canonical URLs.
+- Proper H1, H2, and H3 headings.
+- Semantic HTML.
+- Optimized image alt text.
+- Descriptive internal links.
+- Open Graph metadata.
+- Twitter/X metadata.
+- Breadcrumb navigation.
+- Clean URL structure.
+- Fast page loading.
+- Mobile-friendly layouts.
+- Search engine crawlability.
+
+Avoid duplicate metadata.
+
+Do not keyword-stuff.
+
+==================================================
+18. SCHEMA MARKUP AND STRUCTURED DATA
+==================================================
+
+Implement valid JSON-LD structured data where appropriate.
+
+Use:
+
+1. Person schema.
+2. WebSite schema.
+3. ProfilePage schema.
+4. BreadcrumbList schema.
+5. BlogPosting schema.
+6. FAQPage schema only where the FAQ content meets Google's requirements.
+
+Person schema should accurately describe:
+
+Name: Eman Fatima
+
+URL:
+https://emanfatimaportfolio.vercel.app
+
+Email:
+emanfatima9300@gmail.com
+
+Education:
+BS Computer Engineering student.
+
+Include skills only where supported by the visible website content.
+
+Do not invent:
+- Reviews.
+- Ratings.
+- Awards.
+- Job titles.
+- Company affiliations.
+- Professional certifications.
+
+==================================================
+19. AEO – ANSWER ENGINE OPTIMIZATION
+==================================================
+
+Optimize the website for answer engines and AI-powered search.
+
+Add clear and useful information answering:
+
+- Who is Eman Fatima?
+- What is Eman Fatima studying?
+- What are Eman Fatima's skills?
+- What digital marketing skills does Eman Fatima have?
+- What is Eman Fatima interested in?
+- How can someone contact Eman Fatima?
+
+Use:
+- Clear headings.
+- Concise answers.
+- FAQ sections.
+- Structured data.
+- Semantic HTML.
+- Accurate profile information.
+- Readable content.
+
+Do not hide important information inside images.
+
+==================================================
+20. GEO – GENERATIVE ENGINE OPTIMIZATION
+==================================================
+
+Prepare the website for better discoverability and understanding by AI-powered search systems.
+
+Implement:
+
+- Consistent identity information.
+- Clear person/entity descriptions.
+- Accurate professional biography.
+- Consistent email and website information.
+- Structured data.
+- Semantic content.
+- Crawlable pages.
+- Descriptive internal linking.
+- Useful original blog articles.
+- Accurate llms.txt file.
+
+Make it easy for AI systems to understand who Eman Fatima is, what she studies, and what skills she has.
+
+Do not claim that GEO guarantees AI search citations.
+
+==================================================
+21. REQUIRED SEO FILES
+==================================================
+
+Create all three files inside the public root directory.
+
+A. ROBOTS.TXT
+
+Exact public URL:
+
+https://emanfatimaportfolio.vercel.app/robots.txt
+
+Content:
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://emanfatimaportfolio.vercel.app/sitemap.xml
+
+IMPORTANT:
+- Make sure robots.txt is accessible.
+- Do not block public pages.
+- Admin routes must be protected using authentication, not robots.txt.
+- Do not expose private information.
+
+B. SITEMAP.XML
+
+Exact public URL:
+
+https://emanfatimaportfolio.vercel.app/sitemap.xml
+
+Include these public pages:
+
+https://emanfatimaportfolio.vercel.app/
+
+https://emanfatimaportfolio.vercel.app/about
+
+https://emanfatimaportfolio.vercel.app/skills
+
+https://emanfatimaportfolio.vercel.app/contact
+
+https://emanfatimaportfolio.vercel.app/privacy-policy
+
+https://emanfatimaportfolio.vercel.app/terms-and-conditions
+
+https://emanfatimaportfolio.vercel.app/blog
+
+Also include all published blog articles dynamically.
+
+Requirements:
+- Valid XML.
+- Correct XML namespaces.
+- Correct canonical URLs.
+- Accurate lastmod values.
+- No admin pages.
+- No login pages.
+- No unpublished blog posts.
+- No duplicate URLs.
+- Automatically reflect newly published and removed blog articles.
+
+Use a dynamic sitemap endpoint or a build/deployment process that generates the current sitemap from Supabase.
+
+C. LLMS.TXT
+
+Exact public URL:
+
+https://emanfatimaportfolio.vercel.app/llms.txt
+
+Create a clean, readable file containing:
+
+# Eman Fatima
+
+Official Website:
+https://emanfatimaportfolio.vercel.app
+
+Name:
+Eman Fatima
+
+Email:
+emanfatima9300@gmail.com
+
+Education:
+BS Computer Engineering – 3rd Semester
+
+Professional Skills:
+- Social Media Account Management.
+- Social Media Marketing.
+- Email Marketing.
+- Facebook Marketplace Marketing.
+- Facebook Marketing.
+- Microsoft Word.
+- Microsoft Excel.
+- Microsoft PowerPoint.
+
+Include:
+- Professional biography.
+- About page URL.
+- Skills page URL.
+- Contact page URL.
+- Blog page URL.
+- Relevant public profile information.
+
+Keep the content accurate and updated.
+
+==================================================
+22. WEBSITE SPEED AND PERFORMANCE
+==================================================
+
+Fast loading speed is essential.
+
+Optimize:
+
+- Initial page loading.
+- Image sizes.
+- Image formats.
+- Lazy loading.
+- Code splitting.
+- Route-based loading.
+- JavaScript bundles.
+- CSS delivery.
+- Supabase queries.
+- Database indexing.
+- Browser caching.
+- Font loading.
+- Core Web Vitals.
+
+Use WebP or AVIF where supported.
+
+Avoid unnecessary dependencies.
+
+Avoid loading large images unnecessarily.
+
+Performance goals:
+
+- Lighthouse Performance: 90+
+- Lighthouse Accessibility: 90+
+- Lighthouse Best Practices: 90+
+- Lighthouse SEO: 95+
+
+These are targets and must be tested after deployment.
+
+==================================================
+23. RESPONSIVE DESIGN AND ACCESSIBILITY
+==================================================
+
+Make the entire website responsive.
+
+Support:
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile phones.
+
+Requirements:
+- Responsive navigation.
+- Mobile hamburger menu.
+- Touch-friendly buttons.
+- Readable text.
+- Consistent spacing.
+- Proper contrast.
+- Keyboard accessibility.
+- Accessible forms.
+- Semantic HTML.
+- Descriptive labels.
+- Accessible error messages.
+- Reduced-motion support.
+
+==================================================
+24. ERROR HANDLING AND TESTING
+==================================================
+
+Test the complete website.
+
+Verify:
+
+- Homepage loads.
+- About page loads.
+- Skills page loads.
+- Contact page loads.
+- Privacy Policy loads.
+- Terms and Conditions loads.
+- Blog page loads.
+- Individual blog pages load.
+- Admin login works.
+- Admin authorization works.
+- Admin dashboard works.
+- Direct URLs work.
+- Refresh works on nested routes.
+- No broken links.
+- No missing images.
+- No console errors.
+- Contact form submits.
+- Skills CRUD works.
+- Certificate CRUD works.
+- Blog CRUD works.
+- Image uploads work.
+- Supabase permissions work.
+- Sitemap works.
+- robots.txt works.
+- llms.txt works.
+
+Create a professional custom 404 page.
+
+The 404 page should include:
+- Error message.
+- Go Home button.
+- Explore Skills button.
+- Contact button.
+
+==================================================
+25. PROJECT FILE STRUCTURE
+==================================================
+
+Organize the code professionally.
+
+Suggested structure:
+
+src/
+  components/
+    Navbar.tsx
+    Footer.tsx
+    Hero.tsx
+    SkillCard.tsx
+    CertificateCard.tsx
+    BlogCard.tsx
+    ProtectedRoute.tsx
+    SEO.tsx
+
+  pages/
+    Home.tsx
+    About.tsx
+    Skills.tsx
+    Contact.tsx
+    PrivacyPolicy.tsx
+    TermsConditions.tsx
+    Blog.tsx
+    BlogDetails.tsx
+    NotFound.tsx
+
+  admin/
+    Login.tsx
+    Signup.tsx
+    Dashboard.tsx
+    ProfileManagement.tsx
+    SkillsManagement.tsx
+    CertificatesManagement.tsx
+    BlogManagement.tsx
+    ContactManagement.tsx
+    WebsiteSettings.tsx
+
+  lib/
+    supabase.ts
+
+  hooks/
+  types/
+  utils/
+  styles/
+
+public/
+  robots.txt
+  sitemap.xml
+  llms.txt
+  images/
+
+Also include:
+- package.json
+- tsconfig.json
+- vite.config.ts
+- vercel.json
+- .env.example
+- README.md
+
+Adjust this structure if a better production architecture is appropriate.
+
+==================================================
+26. ENVIRONMENT VARIABLES
+==================================================
+
+Create an .env.example file.
+
+Include:
+
+VITE_SUPABASE_URL=
+
+VITE_SUPABASE_ANON_KEY=
+
+Use the current Supabase publishable key convention where appropriate.
+
+Never commit real credentials to GitHub.
+
+Never place Supabase service role keys in frontend environment variables.
+
+Explain how to configure environment variables in Google AI Studio and Vercel.
+
+==================================================
+27. DEVELOPMENT WORKFLOW
+==================================================
+
+Build the project in the following phases.
+
+PHASE 1:
+Project initialization, dependencies, architecture, reusable components, and black/red design system.
+
+PHASE 2:
+Complete public frontend with all independent pages and responsive navigation.
+
+PHASE 3:
+Supabase connection, database schema, RLS policies, authentication, and storage.
+
+PHASE 4:
+Admin dashboard and profile, skills, certificate, and settings management.
+
+PHASE 5:
+Complete dynamic blog system with article editor and individual blog URLs.
+
+PHASE 6:
+Contact form and contact message management.
+
+PHASE 7:
+SEO, AEO, GEO, structured data, robots.txt, sitemap.xml, and llms.txt.
+
+PHASE 8:
+Performance optimization, accessibility, routing verification, testing, and Vercel deployment.
+
+After completing each phase:
+- Verify the code.
+- Fix errors.
+- Check functionality.
+- Maintain consistent design.
+- Continue to the next phase.
+
+Do not stop after Phase 1 or after generating the homepage.
+
+If output limits prevent generating the entire application at once, divide the implementation into manageable files and phases. Maintain a clear checklist of completed and remaining work. Never silently omit functionality.
+
+==================================================
+28. FINAL DELIVERABLES
+==================================================
+
+I expect a complete working project with:
+
+1. Fully responsive multi-page frontend.
+2. Premium black and red theme.
+3. Smooth animations.
+4. Independent routes for every page.
+5. Supabase backend integration.
+6. PostgreSQL database schema.
+7. Secure RLS policies.
+8. Supabase authentication.
+9. Secure admin dashboard.
+10. Skills management.
+11. Certificate management.
+12. Blog management.
+13. Rich-text blog editor.
+14. Contact form.
+15. Contact message management.
+16. Profile management.
+17. Website settings.
+18. Dynamic SEO metadata.
+19. Person and other relevant structured data.
+20. AEO and GEO optimization.
+21. robots.txt.
+22. sitemap.xml.
+23. llms.txt.
+24. Custom 404 page.
+25. Vercel routing configuration.
+26. Environment variable example.
+27. Complete README and setup instructions.
+28. Deployment instructions.
+
+==================================================
+29. FINAL QUALITY REQUIREMENTS
+==================================================
+
+Before declaring the project complete, make sure:
+
+- Every public page has its own working URL.
+- Every page can be opened directly.
+- Browser refresh does not cause 404 errors.
+- All navigation links work.
+- All admin functions actually work.
+- Supabase stores and retrieves real data.
+- Only authorized administrators can modify content.
+- Blog articles have unique URLs.
+- Published articles appear automatically on the public blog.
+- Certificates appear dynamically.
+- Skills update dynamically.
+- Contact submissions reach Supabase.
+- All three SEO files are accessible.
+- The website uses the black and red theme consistently.
+- The website is responsive on mobile.
+- Performance is optimized.
+- There are no fake buttons or placeholder functionalities presented as completed features.
+
+Do not claim successful deployment, database connection, or testing unless those actions have actually been completed.
+
+==================================================
+30. FINAL PROJECT VISION
+==================================================
+
+My goal is to create a premium personal brand website for Eman Fatima.
+
+The website should look like it was professionally designed and developed by an experienced web development agency.
+
+It should communicate my identity as:
+
+Eman Fatima
+BS Computer Engineering Student
+Digital Marketing Enthusiast
+Social Media Management
+Email Marketing
+Facebook Marketing
+
+My official portfolio domain:
+
+https://emanfatimaportfolio.vercel.app
+
+My most important search keywords are:
+
+- Eman Fatima
+- Eman Fatima Portfolio
+
+Build the website to provide a professional online presence, showcase my skills and education, publish useful blog articles, and allow me to manage all content independently through a secure admin dashboard.
+
+**FINAL INSTRUCTION: BUILD THE COMPLETE FUNCTIONAL WEBSITE, NOT JUST A DESIGN OR HOMEPAGE.**
+
+Prioritize functionality, security, professional design, fast loading, independent page routing, and high-quality SEO implementation.
