@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
-interface AuthUser {
+export interface AuthUser {
   id: string;
+  name?: string;
   email: string;
   role: 'admin';
 }
@@ -12,15 +13,18 @@ interface AuthContextType {
   isAdmin: boolean;
   isLoading: boolean;
   signIn: (email: string, pass: string) => Promise<{ success: boolean; error?: string }>;
-  signUp: (email: string, pass: string, inviteCode: string) => Promise<{ success: boolean; error?: string }>;
+  signUp: (name: string, email: string, pass: string) => Promise<{ success: boolean; error?: string }>;
   signOut: () => Promise<void>;
-  resetPassword: (email: string) => Promise<{ success: boolean; message: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const LOCAL_ADMIN_KEY = 'ef_admin_session';
-const DEFAULT_INVITE_CODE = import.meta.env.VITE_ADMIN_INVITE_CODE || 'EMAN_PORTFOLIO_ADMIN_2026';
+const REGISTERED_USERS_KEY = 'ef_registered_users';
+
+// Master Administrator Credentials
+const MASTER_ADMIN_EMAIL = 'emanfatima9300@gmail.com';
+const MASTER_ADMIN_PASS = 'eman9300';
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
@@ -34,17 +38,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           if (data.session?.user) {
             setUser({
               id: data.session.user.id,
-              email: data.session.user.email || 'emanfatima9300@gmail.com',
+              name: data.session.user.user_metadata?.full_name || 'Eman Fatima',
+              email: data.session.user.email || MASTER_ADMIN_EMAIL,
               role: 'admin',
             });
+            setIsLoading(false);
+            return;
           }
-        } else {
-          // Check local admin session
-          const localSession = localStorage.getItem(LOCAL_ADMIN_KEY);
-          if (localSession) {
-            const parsed = JSON.parse(localSession);
-            setUser(parsed);
-          }
+        }
+
+        // Check local admin session
+        const localSession = localStorage.getItem(LOCAL_ADMIN_KEY);
+        if (localSession) {
+          const parsed = JSON.parse(localSession);
+          setUser(parsed);
         }
       } catch (err) {
         console.error('Auth initialization error:', err);
@@ -60,7 +67,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (session?.user) {
           setUser({
             id: session.user.id,
-            email: session.user.email || 'emanfatima9300@gmail.com',
+            name: session.user.user_metadata?.full_name || 'Eman Fatima',
+            email: session.user.email || MASTER_ADMIN_EMAIL,
             role: 'admin',
           });
         } else {
@@ -75,35 +83,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signIn = async (email: string, pass: string): Promise<{ success: boolean; error?: string }> => {
     setIsLoading(true);
+    const cleanEmail = email.trim().toLowerCase();
+
     try {
-      if (isSupabaseConfigured() && supabase) {
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password: pass,
-        });
-        if (error) {
-          return { success: false, error: error.message };
-        }
-        if (data.user) {
-          setUser({
-            id: data.user.id,
-            email: data.user.email || email,
-            role: 'admin',
-          });
-          return { success: true };
-        }
+      // 1. Direct check for Master Admin Credentials
+      if (cleanEmail === MASTER_ADMIN_EMAIL.toLowerCase() && pass === MASTER_ADMIN_PASS) {
+        const masterAdminUser: AuthUser = {
+          id: 'admin-master-eman',
+          name: 'Eman Fatima',
+          email: MASTER_ADMIN_EMAIL,
+          role: 'admin',
+        };
+        localStorage.setItem(LOCAL_ADMIN_KEY, JSON.stringify(masterAdminUser));
+        setUser(masterAdminUser);
+        return { success: true };
       }
 
-      // Local admin auth check
-      // Allows verified portfolio owner authentication
-      const storedAdmins = JSON.parse(localStorage.getItem('ef_admin_users') || '[]');
-      const matched = storedAdmins.find((u: { email: string; pass: string }) => u.email === email && u.pass === pass);
+      // 2. Check registered users store
+      const storedUsers = JSON.parse(localStorage.getItem(REGISTERED_USERS_KEY) || '[]');
+      const matched = storedUsers.find(
+        (u: { email: string; pass: string }) => u.email.toLowerCase() === cleanEmail && u.pass === pass
+      );
 
-      // Default owner credentials for initial setup preview
-      if (matched || (email === 'emanfatima9300@gmail.com' && pass.length >= 6)) {
+      if (matched) {
         const adminUser: AuthUser = {
-          id: 'admin-owner-eman',
-          email,
+          id: matched.id || `user-${Date.now()}`,
+          name: matched.name || 'Admin User',
+          email: matched.email,
           role: 'admin',
         };
         localStorage.setItem(LOCAL_ADMIN_KEY, JSON.stringify(adminUser));
@@ -111,7 +117,29 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return { success: true };
       }
 
-      return { success: false, error: 'Invalid email or password. Verify your credentials.' };
+      // 3. Fallback check for Supabase Auth if configured
+      if (isSupabaseConfigured() && supabase) {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: cleanEmail,
+          password: pass,
+        });
+        if (!error && data.user) {
+          const authUser: AuthUser = {
+            id: data.user.id,
+            name: data.user.user_metadata?.full_name || 'Eman Fatima',
+            email: data.user.email || cleanEmail,
+            role: 'admin',
+          };
+          localStorage.setItem(LOCAL_ADMIN_KEY, JSON.stringify(authUser));
+          setUser(authUser);
+          return { success: true };
+        }
+      }
+
+      return {
+        success: false,
+        error: 'Invalid email or password. Please verify your credentials and try again.',
+      };
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Authentication failed';
       return { success: false, error: message };
@@ -121,54 +149,72 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signUp = async (
+    name: string,
     email: string,
-    pass: string,
-    inviteCode: string
+    pass: string
   ): Promise<{ success: boolean; error?: string }> => {
     setIsLoading(true);
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanName = name.trim();
+
     try {
-      // Security Enforcement: Only allow signup with authentic admin invite code
-      if (inviteCode !== DEFAULT_INVITE_CODE) {
-        return {
-          success: false,
-          error: 'Security Notice: Unauthorized admin registration. Valid administrator provisioning code required.',
-        };
+      if (!cleanName) {
+        return { success: false, error: 'Full Name is required.' };
+      }
+      if (!cleanEmail) {
+        return { success: false, error: 'Email address is required.' };
+      }
+      if (!pass || pass.length < 4) {
+        return { success: false, error: 'Password is required and must be at least 4 characters.' };
       }
 
+      // Check if user already exists
+      const storedUsers = JSON.parse(localStorage.getItem(REGISTERED_USERS_KEY) || '[]');
+      if (
+        cleanEmail === MASTER_ADMIN_EMAIL.toLowerCase() ||
+        storedUsers.some((u: { email: string }) => u.email.toLowerCase() === cleanEmail)
+      ) {
+        return { success: false, error: 'An account with this email address already exists. Please log in.' };
+      }
+
+      const newUser = {
+        id: `user-${Date.now()}`,
+        name: cleanName,
+        email: cleanEmail,
+        pass,
+        role: 'admin' as const,
+      };
+
+      storedUsers.push(newUser);
+      localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(storedUsers));
+
+      // Attempt Supabase signup if configured
       if (isSupabaseConfigured() && supabase) {
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password: pass,
-        });
-        if (error) {
-          return { success: false, error: error.message };
-        }
-        if (data.user) {
-          setUser({
-            id: data.user.id,
-            email: data.user.email || email,
-            role: 'admin',
+        try {
+          await supabase.auth.signUp({
+            email: cleanEmail,
+            password: pass,
+            options: {
+              data: {
+                full_name: cleanName,
+              },
+            },
           });
-          return { success: true };
+        } catch (supaErr) {
+          console.warn('Supabase signup fallback notice:', supaErr);
         }
       }
 
-      // Local admin signup store
-      const storedAdmins = JSON.parse(localStorage.getItem('ef_admin_users') || '[]');
-      if (storedAdmins.some((u: { email: string }) => u.email === email)) {
-        return { success: false, error: 'An admin account with this email already exists.' };
-      }
-
-      storedAdmins.push({ email, pass });
-      localStorage.setItem('ef_admin_users', JSON.stringify(storedAdmins));
-
-      const adminUser: AuthUser = {
-        id: `admin-${Date.now()}`,
-        email,
+      // Auto login user upon creation
+      const loggedInUser: AuthUser = {
+        id: newUser.id,
+        name: cleanName,
+        email: cleanEmail,
         role: 'admin',
       };
-      localStorage.setItem(LOCAL_ADMIN_KEY, JSON.stringify(adminUser));
-      setUser(adminUser);
+      localStorage.setItem(LOCAL_ADMIN_KEY, JSON.stringify(loggedInUser));
+      setUser(loggedInUser);
+
       return { success: true };
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Registration failed';
@@ -180,23 +226,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signOut = async (): Promise<void> => {
     if (isSupabaseConfigured() && supabase) {
-      await supabase.auth.signOut();
+      try {
+        await supabase.auth.signOut();
+      } catch (err) {
+        console.warn('Supabase signout notice:', err);
+      }
     }
     localStorage.removeItem(LOCAL_ADMIN_KEY);
     setUser(null);
-  };
-
-  const resetPassword = async (email: string): Promise<{ success: boolean; message: string }> => {
-    if (isSupabaseConfigured() && supabase) {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/admin/login`,
-      });
-      if (error) return { success: false, message: error.message };
-    }
-    return {
-      success: true,
-      message: `If an account exists for ${email}, a password reset verification email has been dispatched.`,
-    };
   };
 
   return (
@@ -208,7 +245,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         signIn,
         signUp,
         signOut,
-        resetPassword,
       }}
     >
       {children}

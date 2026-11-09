@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, ArrowUpRight, Shield, Linkedin, UserPlus, LogIn } from 'lucide-react';
+import { Mail, ArrowUpRight, Shield, Linkedin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -123,22 +123,6 @@ export const Footer: React.FC = () => {
                   <span>llms.txt</span>
                   <ArrowUpRight className="w-3 h-3 text-[#707070]" />
                 </a>
-              </li>
-              <li className="pt-2 flex flex-col gap-1.5">
-                <Link
-                  to="/admin/login"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#888888] hover:text-[#E50914] transition-colors"
-                >
-                  <LogIn className="w-3.5 h-3.5 text-[#E50914]" />
-                  <span>Admin Login</span>
-                </Link>
-                <Link
-                  to="/admin/signup"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#888888] hover:text-[#E50914] transition-colors"
-                >
-                  <UserPlus className="w-3.5 h-3.5 text-[#E50914]" />
-                  <span>Create Account</span>
-                </Link>
               </li>
             </ul>
           </div>
