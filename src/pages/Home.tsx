@@ -9,10 +9,6 @@ import {
   Award,
   Calendar,
   Linkedin,
-  Facebook,
-  Instagram,
-  Github,
-  Twitter,
   CheckCircle,
 } from 'lucide-react';
 import { SEO } from '../components/SEO';
@@ -110,53 +106,18 @@ export const Home: React.FC = () => {
                 </Link>
               </div>
 
-              {/* Social Media Links */}
-              <div className="pt-4 flex items-center gap-5 text-[#888888]">
-                <span className="text-xs uppercase tracking-wider font-semibold text-[#666666]">Connect:</span>
+              {/* Social Media Links (LinkedIn Only) */}
+              <div className="pt-4 flex items-center gap-3 text-[#888888]">
+                <span className="text-xs uppercase tracking-wider font-semibold text-[#888888]">Professional Profile:</span>
                 <a
-                  href={profile?.social_links?.linkedin || 'https://linkedin.com'}
+                  href="https://www.linkedin.com/in/eman-fatima-a927683a2/"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Eman Fatima LinkedIn"
-                  className="hover:text-[#E50914] transition-colors"
+                  aria-label="Eman Fatima LinkedIn Profile"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#181818] border border-[#303030] hover:border-[#0A66C2] rounded-lg text-xs font-semibold text-white transition-colors"
                 >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href={profile?.social_links?.facebook || 'https://facebook.com'}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Eman Fatima Facebook"
-                  className="hover:text-[#E50914] transition-colors"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href={profile?.social_links?.instagram || 'https://instagram.com'}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Eman Fatima Instagram"
-                  className="hover:text-[#E50914] transition-colors"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href={profile?.social_links?.github || 'https://github.com'}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Eman Fatima GitHub"
-                  className="hover:text-[#E50914] transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href={profile?.social_links?.twitter || 'https://x.com'}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Eman Fatima Twitter"
-                  className="hover:text-[#E50914] transition-colors"
-                >
-                  <Twitter className="w-5 h-5" />
+                  <Linkedin className="w-4 h-4 text-[#0A66C2]" />
+                  <span>linkedin.com/in/eman-fatima-a927683a2</span>
                 </a>
               </div>
             </div>
@@ -165,10 +126,10 @@ export const Home: React.FC = () => {
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative group w-full max-w-sm sm:max-w-md aspect-square rounded-2xl overflow-hidden border border-[#303030] bg-[#111111] shadow-2xl shadow-black/80">
                 <img
-                  src={profile?.profile_image || '/src/assets/images/eman_fatima_portrait_1794240983912.jpg'}
+                  src="/assets/aistudio/WhatsApp_Image_2026-11-08_at_1.44.49_PM_377591ba.jpeg"
                   alt="Eman Fatima – Computer Engineering Student and Digital Marketer"
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#111111]/90 backdrop-blur-md border border-[#303030] flex items-center justify-between">

@@ -247,7 +247,7 @@ export const BlogDetails: React.FC = () => {
           {/* Author Box */}
           <div className="mt-10 p-6 bg-[#181818] border border-[#262626] rounded-2xl flex flex-col sm:flex-row items-center gap-6">
             <img
-              src="/src/assets/images/eman_fatima_portrait_1794240983912.jpg"
+              src="/assets/aistudio/WhatsApp_Image_2026-11-08_at_1.44.49_PM_377591ba.jpeg"
               alt="Eman Fatima"
               className="w-20 h-20 rounded-full object-cover border-2 border-[#E50914] shrink-0"
             />

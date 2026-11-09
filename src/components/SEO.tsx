@@ -18,7 +18,7 @@ export const SEO: React.FC<SEOProps> = ({
   title = 'Eman Fatima | Personal Portfolio & Digital Marketing Skills',
   description = "Welcome to Eman Fatima's official portfolio. Explore her Computer Engineering education, digital marketing interests, social media management skills, email marketing, and professional profile.",
   canonicalUrl,
-  ogImage = '/src/assets/images/eman_fatima_portrait_1794240983912.jpg',
+    ogImage = '/assets/aistudio/WhatsApp_Image_2026-11-08_at_1.44.49_PM_377591ba.jpeg',
   ogType = 'website',
   schemaData,
 }) => {
@@ -86,6 +86,8 @@ export const SEO: React.FC<SEOProps> = ({
           name: 'Eman Fatima',
           url: 'https://emanfatimaportfolio.vercel.app',
           email: 'emanfatima9300@gmail.com',
+          image: 'https://emanfatimaportfolio.vercel.app/assets/aistudio/WhatsApp_Image_2026-11-08_at_1.44.49_PM_377591ba.jpeg',
+          sameAs: ['https://www.linkedin.com/in/eman-fatima-a927683a2/'],
           jobTitle: 'Computer Engineering Student & Digital Marketing Practitioner',
           description:
             'BS Computer Engineering student in 3rd semester specializing in digital marketing, social media account management, email marketing, and technology.',
@@ -103,6 +105,23 @@ export const SEO: React.FC<SEOProps> = ({
             'Microsoft Word',
             'Microsoft Excel',
             'Microsoft PowerPoint',
+          ],
+          hasCredential: [
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'Certificate of Participation – IEEE STEP Program',
+              recognizedBy: 'IEEE KFUEIT & IEEE Education Society',
+            },
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'Building Digital Clones with AI Masterclass',
+              recognizedBy: 'DataCrumbs',
+            },
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'Certificate of Attendance – Integrating IEEE Xplore Resources',
+              recognizedBy: 'IEEE (Asia-IEEE)',
+            },
           ],
         },
         {

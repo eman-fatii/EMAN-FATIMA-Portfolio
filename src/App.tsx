@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, useLocation, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -22,6 +22,17 @@ import { Login } from './admin/Login';
 import { Signup } from './admin/Signup';
 import { Dashboard } from './admin/Dashboard';
 
+// Automatically normalizes paths with trailing slashes so direct links never fail
+const PathNormalizer: React.FC = () => {
+  const location = useLocation();
+  const { pathname, search, hash } = location;
+
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return <Navigate to={{ pathname: pathname.slice(0, -1), search, hash }} replace />;
+  }
+  return null;
+};
+
 // Public Layout Wrapper
 const PublicLayout: React.FC = () => {
   return (
@@ -39,6 +50,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <PathNormalizer />
         <ScrollToTop />
         <Routes>
           {/* Public Pages with Standard Header & Footer */}
@@ -54,9 +66,13 @@ export default function App() {
             <Route path="/404" element={<NotFound />} />
           </Route>
 
-          {/* Admin Authentication Routes */}
+          {/* Admin & Auth Routes + Direct URL Aliases */}
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="/admin/login" element={<Login />} />
           <Route path="/admin/signup" element={<Signup />} />
+          <Route path="/login" element={<Navigate to="/admin/login" replace />} />
+          <Route path="/signup" element={<Navigate to="/admin/signup" replace />} />
+          <Route path="/register" element={<Navigate to="/admin/signup" replace />} />
 
           {/* Protected Admin Dashboard */}
           <Route

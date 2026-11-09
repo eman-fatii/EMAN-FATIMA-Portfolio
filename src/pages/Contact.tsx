@@ -7,10 +7,7 @@ import {
   AlertCircle,
   HelpCircle,
   Linkedin,
-  Facebook,
-  Instagram,
-  Github,
-  Twitter,
+  ArrowUpRight,
   ChevronDown,
 } from 'lucide-react';
 import { SEO } from '../components/SEO';
@@ -179,49 +176,34 @@ export const Contact: React.FC = () => {
                 </a>
               </div>
 
-              {/* SECTION 4: Social Media Profiles */}
+              {/* SECTION 4: Social Media Profile (LinkedIn Only) */}
               <div className="bg-[#181818] border border-[#262626] rounded-2xl p-6 space-y-4">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#888888]">Digital Presence</span>
-                <h3 className="text-lg font-bold text-white">Social Media Networks</h3>
+                <span className="text-xs font-mono uppercase tracking-wider text-[#888888]">Professional Network</span>
+                <h3 className="text-lg font-bold text-white">LinkedIn Profile</h3>
                 <p className="text-sm text-[#B3B3B3]">
-                  Connect with Eman across verified professional channels:
+                  Connect with Eman Fatima on her official verified LinkedIn profile for business discussions, professional networking, and project inquiries:
                 </p>
-                <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="pt-1">
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/eman-fatima-a927683a2/"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 p-3 bg-[#111111] border border-[#262626] hover:border-[#E50914] rounded-lg text-xs font-semibold text-[#B3B3B3] hover:text-white transition-colors"
+                    className="flex items-center justify-between p-4 bg-[#111111] border border-[#303030] hover:border-[#0A66C2] rounded-xl text-sm font-semibold text-white transition-colors group"
                   >
-                    <Linkedin className="w-4 h-4 text-[#E50914]" />
-                    <span>LinkedIn</span>
-                  </a>
-                  <a
-                    href="https://facebook.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 p-3 bg-[#111111] border border-[#262626] hover:border-[#E50914] rounded-lg text-xs font-semibold text-[#B3B3B3] hover:text-white transition-colors"
-                  >
-                    <Facebook className="w-4 h-4 text-[#E50914]" />
-                    <span>Facebook</span>
-                  </a>
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 p-3 bg-[#111111] border border-[#262626] hover:border-[#E50914] rounded-lg text-xs font-semibold text-[#B3B3B3] hover:text-white transition-colors"
-                  >
-                    <Instagram className="w-4 h-4 text-[#E50914]" />
-                    <span>Instagram</span>
-                  </a>
-                  <a
-                    href="https://github.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 p-3 bg-[#111111] border border-[#262626] hover:border-[#E50914] rounded-lg text-xs font-semibold text-[#B3B3B3] hover:text-white transition-colors"
-                  >
-                    <Github className="w-4 h-4 text-[#E50914]" />
-                    <span>GitHub</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#0A66C2]/15 flex items-center justify-center text-[#0A66C2]">
+                        <Linkedin className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-white group-hover:text-[#0A66C2] transition-colors">
+                          Eman Fatima
+                        </div>
+                        <div className="text-xs text-[#888888] font-mono">
+                          linkedin.com/in/eman-fatima-a927683a2
+                        </div>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-[#888888] group-hover:text-white transition-colors" />
                   </a>
                 </div>
               </div>

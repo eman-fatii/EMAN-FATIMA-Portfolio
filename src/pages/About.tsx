@@ -56,10 +56,10 @@ export const About: React.FC = () => {
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden border border-[#303030] bg-[#111111] shadow-2xl">
                 <img
-                  src={profile?.profile_image || '/src/assets/images/eman_fatima_portrait_1794240983912.jpg'}
+                  src="/assets/aistudio/WhatsApp_Image_2026-11-08_at_1.44.49_PM_377591ba.jpeg"
                   alt="Eman Fatima - Personal Portrait"
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#111111]/90 backdrop-blur-md border border-[#303030]">
@@ -88,6 +88,15 @@ export const About: React.FC = () => {
                 <span className="flex items-center gap-1.5 text-white">
                   <CheckCircle2 className="w-4 h-4 text-[#E50914]" /> Verified Profile
                 </span>
+                <span>·</span>
+                <a
+                  href="https://www.linkedin.com/in/eman-fatima-a927683a2/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 text-white hover:text-[#0A66C2] transition-colors"
+                >
+                  <span className="text-[#0A66C2]">in</span> LinkedIn Profile
+                </a>
                 <span>·</span>
                 <span className="flex items-center gap-1.5 text-white">
                   <Mail className="w-4 h-4 text-[#E50914]" /> emanfatima9300@gmail.com

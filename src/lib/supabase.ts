@@ -34,13 +34,9 @@ const INITIAL_PROFILE: Profile = {
     "Hello! I'm Eman Fatima, a BS Computer Engineering student currently in my 3rd semester. I am interested in digital marketing, social media management, and technology. I enjoy learning new digital skills, exploring creative marketing strategies, and developing my professional capabilities.",
   education: 'BS Computer Engineering',
   semester: '3rd Semester',
-  profile_image: '/src/assets/images/eman_fatima_portrait_1794240983912.jpg',
+  profile_image: '/assets/aistudio/WhatsApp_Image_2026-11-08_at_1.44.49_PM_377591ba.jpeg',
   social_links: {
-    linkedin: 'https://linkedin.com',
-    facebook: 'https://facebook.com',
-    instagram: 'https://instagram.com',
-    github: 'https://github.com',
-    twitter: 'https://x.com',
+    linkedin: 'https://www.linkedin.com/in/eman-fatima-a927683a2/',
   },
   hero_intro:
     "I'm Eman Fatima, a BS Computer Engineering student passionate about digital marketing, social media management, and creating meaningful digital experiences.",
@@ -262,6 +258,39 @@ Building discipline in email marketing gives any digital marketer a reliable sup
   },
 ];
 
+const INITIAL_CERTIFICATES: Certificate[] = [
+  {
+    id: 'cert-1',
+    title: 'Certificate of Participation – IEEE STEP Program',
+    organization: 'IEEE KFUEIT Chapter & IEEE Education Society',
+    description:
+      'Awarded to Eman Fatima for actively participating in the IEEE Step Program "Campus to Career: The IEEE STEP journey", held on 15 October 2026 at Civil Auditorium, KFUEIT.',
+    issue_date: '2026-10-15',
+    file_url: '/assets/aistudio/image_41ba8fb8.png',
+    credential_url: 'https://www.linkedin.com/in/eman-fatima-a927683a2/',
+  },
+  {
+    id: 'cert-2',
+    title: 'Building Digital Clones with AI Masterclass',
+    organization: 'DataCrumbs',
+    description:
+      'Proudly presented to Emaan Fatima for successfully participating in the masterclass "Building Digital Clones with AI", demonstrating initiative and commitment to deepening AI and digital capabilities. Signed by Abis Hussain Syed, CEO & Founder.',
+    issue_date: '2026-07-10',
+    file_url: '/assets/aistudio/image_a5d6518b.png',
+    credential_url: 'https://www.linkedin.com/in/eman-fatima-a927683a2/',
+  },
+  {
+    id: 'cert-3',
+    title: 'Certificate of Attendance – Integrating IEEE Xplore Resources',
+    organization: 'IEEE (Asia-IEEE)',
+    description:
+      'Attended the comprehensive online training session on "Integrating IEEE Xplore Resources into your teaching: A dedicated session for lecturers" (Certificate ID: IEEE260818148). Signed by Alex Liu Yupeng, Manager Client Services for Asia-IEEE.',
+    issue_date: '2026-08-18',
+    file_url: '/assets/aistudio/image_fd153459.png',
+    credential_url: 'https://www.linkedin.com/in/eman-fatima-a927683a2/',
+  },
+];
+
 const INITIAL_SETTINGS: SiteSettings = {
   site_name: 'Eman Fatima',
   site_description:
@@ -272,11 +301,7 @@ const INITIAL_SETTINGS: SiteSettings = {
   contact_email: 'emanfatima9300@gmail.com',
   footer_text: '© 2026 Eman Fatima. All rights reserved. Crafted with clean engineering standards and black-and-red aesthetics.',
   social_links: {
-    linkedin: 'https://linkedin.com',
-    facebook: 'https://facebook.com',
-    instagram: 'https://instagram.com',
-    github: 'https://github.com',
-    twitter: 'https://x.com',
+    linkedin: 'https://www.linkedin.com/in/eman-fatima-a927683a2/',
   },
 };
 
@@ -380,13 +405,18 @@ export const dataService = {
   // CERTIFICATES
   async getCertificates(): Promise<Certificate[]> {
     if (supabase) {
-      const { data, error } = await supabase
-        .from('certificates')
-        .select('*')
-        .order('issue_date', { ascending: false });
-      if (!error && data) return data;
+      try {
+        const { data, error } = await supabase
+          .from('certificates')
+          .select('*')
+          .order('issue_date', { ascending: false });
+        if (!error && data && data.length > 0) return data;
+      } catch {
+        // Fallback to local
+      }
     }
-    return getLocal<Certificate[]>('certificates', []);
+    const stored = getLocal<Certificate[]>('certificates', INITIAL_CERTIFICATES);
+    return stored && stored.length > 0 ? stored : INITIAL_CERTIFICATES;
   },
 
   async createCertificate(cert: Omit<Certificate, 'id'>): Promise<Certificate> {
@@ -400,7 +430,7 @@ export const dataService = {
       const { data, error } = await supabase.from('certificates').insert([newCert]).select().single();
       if (!error && data) return data;
     }
-    const current = getLocal<Certificate[]>('certificates', []);
+    const current = getLocal<Certificate[]>('certificates', INITIAL_CERTIFICATES);
     const updated = [newCert, ...current];
     setLocal('certificates', updated);
     return newCert;
@@ -416,7 +446,7 @@ export const dataService = {
         .single();
       if (!error && data) return data;
     }
-    const current = getLocal<Certificate[]>('certificates', []);
+    const current = getLocal<Certificate[]>('certificates', INITIAL_CERTIFICATES);
     const updated = current.map((c) => (c.id === id ? { ...c, ...cert, updated_at: new Date().toISOString() } : c));
     setLocal('certificates', updated);
     return updated.find((c) => c.id === id)!;
@@ -426,35 +456,48 @@ export const dataService = {
     if (supabase) {
       await supabase.from('certificates').delete().eq('id', id);
     }
-    const current = getLocal<Certificate[]>('certificates', []);
+    const current = getLocal<Certificate[]>('certificates', INITIAL_CERTIFICATES);
     setLocal('certificates', current.filter((c) => c.id !== id));
   },
 
   // BLOG POSTS
   async getBlogPosts(includeDrafts = false): Promise<BlogPost[]> {
     if (supabase) {
-      let query = supabase.from('blog_posts').select('*').order('published_at', { ascending: false });
-      if (!includeDrafts) {
-        query = query.eq('status', 'published');
+      try {
+        let query = supabase.from('blog_posts').select('*').order('published_at', { ascending: false });
+        if (!includeDrafts) {
+          query = query.eq('status', 'published');
+        }
+        const { data, error } = await query;
+        if (!error && data && data.length > 0) return data;
+      } catch {
+        // Fallback to local
       }
-      const { data, error } = await query;
-      if (!error && data && data.length > 0) return data;
     }
     const all = getLocal<BlogPost[]>('blogs', INITIAL_BLOGS);
     return includeDrafts ? all : all.filter((b) => b.status === 'published');
   },
 
   async getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+    const cleanSlug = (slug || '').trim().toLowerCase().replace(/\/$/, '');
     if (supabase) {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-      if (!error && data) return data;
+      try {
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .select('*')
+          .ilike('slug', cleanSlug)
+          .single();
+        if (!error && data) return data;
+      } catch {
+        // Fallback to local
+      }
     }
     const all = getLocal<BlogPost[]>('blogs', INITIAL_BLOGS);
-    return all.find((b) => b.slug === slug) || null;
+    return (
+      all.find(
+        (b) => b.slug.trim().toLowerCase() === cleanSlug
+      ) || null
+    );
   },
 
   async createBlogPost(post: Omit<BlogPost, 'id'>): Promise<BlogPost> {

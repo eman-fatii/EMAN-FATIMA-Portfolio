@@ -9,10 +9,6 @@ export interface Profile {
   profile_image: string;
   social_links: {
     linkedin?: string;
-    github?: string;
-    facebook?: string;
-    instagram?: string;
-    twitter?: string;
   };
   hero_intro: string;
   created_at?: string;
@@ -84,9 +80,5 @@ export interface SiteSettings {
   footer_text: string;
   social_links: {
     linkedin?: string;
-    facebook?: string;
-    instagram?: string;
-    github?: string;
-    twitter?: string;
   };
 }

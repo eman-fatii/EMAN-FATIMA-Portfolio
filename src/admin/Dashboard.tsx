@@ -372,8 +372,13 @@ export const Dashboard: React.FC = () => {
         <div>
           {/* Dashboard Header */}
           <div className="p-6 border-b border-[#222222]">
-            <Link to="/" className="text-lg font-extrabold tracking-wider text-white flex items-center gap-2">
-              <span>EMAN FATIMA</span>
+            <Link to="/" className="text-lg font-extrabold tracking-wider text-white flex items-center gap-2.5">
+              <img
+                src="/assets/aistudio/WhatsApp_Image_2026-11-08_at_1.44.49_PM_377591ba.jpeg"
+                alt="Eman Fatima"
+                className="w-9 h-9 rounded-full object-cover border-2 border-[#E50914] shadow-md shadow-[#E50914]/20 shrink-0"
+              />
+              <span className="font-extrabold tracking-wider text-white">EMAN FATIMA</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#E50914]" />
             </Link>
             <div className="mt-2 flex items-center gap-2 text-xs font-mono text-[#888888]">
@@ -637,6 +642,24 @@ export const Dashboard: React.FC = () => {
                   type="text"
                   value={profile.profile_image}
                   onChange={(e) => setProfile({ ...profile, profile_image: e.target.value })}
+                  className="w-full bg-[#111111] border border-[#303030] focus:border-[#E50914] focus:outline-none rounded-xl p-3 text-sm text-white font-mono"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold uppercase tracking-wider text-[#B3B3B3] block">
+                  LinkedIn Profile URL
+                </label>
+                <input
+                  type="url"
+                  value={profile.social_links?.linkedin || ''}
+                  onChange={(e) =>
+                    setProfile({
+                      ...profile,
+                      social_links: { linkedin: e.target.value },
+                    })
+                  }
+                  placeholder="https://www.linkedin.com/in/eman-fatima-a927683a2/"
                   className="w-full bg-[#111111] border border-[#303030] focus:border-[#E50914] focus:outline-none rounded-xl p-3 text-sm text-white font-mono"
                 />
               </div>
